@@ -1,0 +1,53 @@
+<%= form_for(@product) do |f| %>
+  <% if @product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+      <% @product.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :url %><br />
+    <%= f.text_field :url %>
+  </div>
+  <div class="field">
+    <%= f.label :designer %><br />
+    <%= f.text_field :designer %>
+  </div>
+  <div class="field">
+    <%= f.label :retail_price %><br />
+    <%= f.text_field :retail_price %>
+  </div>
+  <div class="field">
+    <%= f.label :discount_price %><br />
+    <%= f.text_field :discount_price %>
+  </div>
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :sizes %><br />
+    <%= f.text_field :sizes %>
+  </div>
+  <div class="field">
+    <%= f.label :colors %><br />
+    <%= f.text_field :colors %>
+  </div>
+  <div class="field">
+    <%= f.label :image %><br />
+    <%= f.text_field :image %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
