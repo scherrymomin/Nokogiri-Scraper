@@ -22,3 +22,19 @@ doc.css(".itemlink").each do |item|
 end|
 	
 end
+
+require 'rubygems'
+require 'mechanize'
+require 'open-uri'
+
+agent = Mechanize.new
+
+designers = agent.get("http://www.yoox.com/US/designerIndex?dept=women")
+
+page_links = Array.new
+	agent.page.parser.css(".designer a").each do |ll|
+		page_links << ll
+		puts ll.text + "=>" + ll["href"]
+end
+
+puts page_links.size
