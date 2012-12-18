@@ -26,10 +26,12 @@ end
 require 'rubygems'
 require 'mechanize'
 require 'open-uri'
+require 'pry'
 
 agent = Mechanize.new
 
-designers = agent.get("http://www.yoox.com/US/designerIndex?dept=women")
+agent.get("http://www.yoox.com/US/designerIndex?dept=women")
+
 
 page_links = Array.new
 	agent.page.parser.css(".designer a").each do |ll|
@@ -37,4 +39,46 @@ page_links = Array.new
 		puts ll.text + "=>" + ll["href"]
 end
 
+
 puts page_links.size
+
+
+#agent = Mechanize.new
+
+#designers = agent.get("http://www.yoox.com/US/designerIndex?dept=women")
+
+#page_links = Array.new 
+#		agent.page.parser.css(".designer a").each do |link|
+#			page_links << link
+			#(:href => %r{^/us/women/shoponline/}i).each do |link|
+#			end
+#		link.each do
+#			agent.page.link_with(:href => %r{^/us/women/shoponline/}i).click 
+#			end
+
+#designers.links_with(:text => '/us/women/shoponline/').click
+
+#page_links = Array.new
+#	agent.page.parser.css(".designer a").each do |ll|
+#		page_links << ll
+		
+#		page_links.each do |ll|
+#				agent.page.links_with(:href => '/us/women/shoponline/').click
+#			end
+			
+		
+		#puts ll.text + "=>" + ll["href"]
+		#puts ll['href']
+#end
+
+
+#puts page_links.size
+
+desc "Import Products"
+task :import_products => :enviornment do
+	end
+
+
+
+
+
